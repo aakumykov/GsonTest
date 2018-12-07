@@ -72,6 +72,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        catString = "{\n" +
+                "\t\"age\": 0,\n" +
+                "\t\"kittenMap\": {\n" +
+                "\t\t\"список котят котят 1\": [\n" +
+                "\t\t\t{\"name\":\"котёнок1.1\"},\n" +
+                "\t\t\t{\"name\":\"котёнок1.2\"}\n" +
+                "\t\t],\n" +
+                "\t\t\"список котят котят 2\": [\n" +
+                "\t\t\t{\"name\":\"котёнок2.1\"},\n" +
+                "\t\t\t{\"name\":\"котёнок2.2\"}\n" +
+                "\t\t]\n" +
+                "\t}\n" +
+                "}";
+
+        catObject1 = new Cat();
+
         Map<String,List<Kitten>> kittenMap = new HashMap<>();
 
         kittenMap.put("список котят котят 1",
