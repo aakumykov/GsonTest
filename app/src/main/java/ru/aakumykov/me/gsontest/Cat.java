@@ -8,8 +8,7 @@ public class Cat {
     private String name;
     private int age;
     private String color;
-    private List<Flea> fleas;
-    private Map<String,Kitten> kittenMap;
+    private Map<String,List<Kitten>> kittenMap;
 
     Cat(){}
 
@@ -18,7 +17,6 @@ public class Cat {
         return "Кошка { name: "+ name+
                 ", age: "+age+
                 ", color: "+color+
-                ", fleas: "+fleas.getClass().getSimpleName()+"["+fleas.size()+"]"+
                 ", kittens: "+kittenMap.getClass().getSimpleName()+"("+kittenMap.size()+")"+
         " }";
     }
@@ -48,19 +46,11 @@ public class Cat {
         this.color = color;
     }
 
-    public List<Flea> getFleas() {
-        return fleas;
-    }
-
-    public void setFleas(List<Flea> fleas) {
-        this.fleas = fleas;
-    }
-
-    public Map<String, Kitten> getKittenMap() {
+    public Map<String, List<Kitten>> getKittenMap() {
         return kittenMap;
     }
 
-    public void setKittenMap(Map<String, Kitten> kittenMap) {
+    public void setKittenMap(Map<String, List<Kitten>> kittenMap) {
         this.kittenMap = kittenMap;
     }
 }

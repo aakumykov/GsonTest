@@ -15,6 +15,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.cat2jsonButton) Button cat2jsonButton;
     @BindView(R.id.json2catButton) Button json2catButton;
 
-    private Cat catObject;
     private String catString;
+    private Cat catObject1;
+    private Cat catObject2;
 
     private String boardString;
     private Board boardObject;
@@ -70,31 +72,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        catObject = new Cat();
-        catObject.setName("Мурзик");
-        catObject.setAge(9);
-        catObject.setColor("чёрный");
+        Map<String,List<Kitten>> kittenMap = new HashMap<>();
 
-        List<Flea> fleas = new ArrayList<>();
-        fleas.add(new Flea("Блоха Маруся", 1));
-        fleas.add(new Flea("Блох Петя", 2));
+        kittenMap.put("список котят котят 1",
+                new ArrayList<Kitten>(
+                        Arrays.asList(
+                                new Kitten("котёнок1.1"),
+                                new Kitten("котёнок1.2")
+                        )
+                )
+        );
 
-        catObject.setFleas(fleas);
+        kittenMap.put("список котят котят 2",
+                new ArrayList<Kitten>(
+                        Arrays.asList(
+                                new Kitten("котёнок2.1"),
+                                new Kitten("котёнок2.2")
+                        )
+                )
+        );
 
-        Map<String,Kitten> kittenMap = new HashMap<>();
-        kittenMap.put("котёнок-1", new Kitten("котёнок Муризик"));
-        kittenMap.put("котёнок-2", new Kitten("котёнок Федик"));
-
-        catObject.setKittenMap(kittenMap);
+        catObject1.setKittenMap(kittenMap);
     }
 
 
     @OnClick(R.id.cat2jsonButton)
     void cat2json() {
-        if (null != catObject) {
+        if (null != catObject1) {
             GsonBuilder gsonBuilder1 = new GsonBuilder();
             Gson gson1 = gsonBuilder1.create();
-            catString = gson1.toJson(catObject);
+            catString = gson1.toJson(catObject1);
             Log.i("GSON", catString);
         }
     }
@@ -104,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(catString)) {
             GsonBuilder gsonBuilder2 = new GsonBuilder();
             Gson gson2 = gsonBuilder2.create();
-            catObject = gson2.fromJson(catString, Cat.class);
-            Log.i("GSON", catObject.toString());
+            catObject2 = gson2.fromJson(catString, Cat.class);
+            Log.i("GSON", catObject1.toString());
         }
     }
 
