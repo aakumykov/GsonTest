@@ -14,7 +14,9 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -73,10 +75,9 @@ public class MainActivity extends AppCompatActivity {
         catObject.setAge(9);
         catObject.setColor("чёрный");
 
-        Flea[] fleas = {
-                new Flea("Блоха Маруся", 1),
-                new Flea("Блох Петя", 2)
-        };
+        List<Flea> fleas = new ArrayList<>();
+        fleas.add(new Flea("Блоха Маруся", 1));
+        fleas.add(new Flea("Блох Петя", 2));
 
         catObject.setFleas(fleas);
 
