@@ -18,4 +18,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="JSON --> Кошка" />
+
+    <Button
+        android:id="@+id/json2boardButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:capitalize="none"
+        android:text="json2board"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/board2jsonButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:capitalize="none"
+        android:text="board2json"
+        android:textAllCaps="false" />
 </LinearLayout>

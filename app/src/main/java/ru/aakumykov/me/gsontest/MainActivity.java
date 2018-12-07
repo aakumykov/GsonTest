@@ -8,13 +8,19 @@ import android.widget.Button;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ru.aakumykov.me.gsontest.models.Board;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +29,37 @@ public class MainActivity extends AppCompatActivity {
 
     private Cat catObject;
     private String catString;
+
+    private String boardString;
+    private Board boardObject;
+
+    private static final TypeAdapter<Boolean> booleanAsIntAdapter = new TypeAdapter<Boolean>() {
+
+        @Override public void write(JsonWriter out, Boolean value) throws IOException {
+            if (value == null) {
+                out.nullValue();
+            } else {
+                out.value(value);
+            }
+        }
+
+        @Override public Boolean read(JsonReader in) throws IOException {
+            JsonToken peek = in.peek();
+            switch (peek) {
+                case BOOLEAN:
+                    return in.nextBoolean();
+                case NULL:
+                    in.nextNull();
+                    return null;
+                case NUMBER:
+                    return in.nextInt() != 0;
+                case STRING:
+                    return Boolean.parseBoolean(in.nextString());
+                default:
+                    throw new IllegalStateException("Expected BOOLEAN or NUMBER but was " + peek);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +103,52 @@ public class MainActivity extends AppCompatActivity {
             Gson gson2 = gsonBuilder2.create();
             catObject = gson2.fromJson(catString, Cat.class);
             Log.i("GSON", catObject.toString());
+        }
+    }
+
+    @OnClick(R.id.json2boardButton)
+    void json2board() {
+        String json = "{\n" +
+                "      \"bump_limit\": 500,\n" +
+                "      \"category\": \"Взрослым\",\n" +
+                "      \"default_name\": \"Аноним\",\n" +
+                "      \"enable_dices\": 0,\n" +
+                "      \"enable_flags\": 0,\n" +
+                "      \"enable_icons\": 0,\n" +
+                "      \"enable_likes\": 0,\n" +
+                "      \"enable_names\": 1,\n" +
+                "      \"enable_oekaki\": 0,\n" +
+                "      \"enable_posting\": 1,\n" +
+                "      \"enable_sage\": 1,\n" +
+                "      \"enable_shield\": 0,\n" +
+                "      \"enable_subject\": 1,\n" +
+                "      \"enable_thread_tags\": 0,\n" +
+                "      \"enable_trips\": 1,\n" +
+                "      \"icons\": [],\n" +
+                "      \"id\": \"fag\",\n" +
+                "      \"name\": \"Фагготрия\",\n" +
+                "      \"pages\": 7,\n" +
+                "      \"sage\": 1,\n" +
+                "      \"tripcodes\": 1\n" +
+                "    }";
+
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Boolean.class, booleanAsIntAdapter)
+                .registerTypeAdapter(boolean.class, booleanAsIntAdapter)
+                .create();
+
+        this.boardObject = gson.fromJson(json, Board.class);
+    }
+
+    @OnClick(R.id.board2jsonButton)
+    void board2json() {
+        if (null != boardObject) {
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(Boolean.class, booleanAsIntAdapter)
+                    .registerTypeAdapter(boolean.class, booleanAsIntAdapter)
+                    .create();
+
+            this.boardString = gson.toJson(this.boardObject);
         }
     }
 }
