@@ -34,4 +34,12 @@
         android:capitalize="none"
         android:text="board2json"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/json2boardsTOCButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:capitalize="none"
+        android:text="json2boardsTOC"
+        android:textAllCaps="false" />
 </LinearLayout>
