@@ -1,11 +1,14 @@
 package ru.aakumykov.me.gsontest;
 
+import java.util.Map;
+
 public class Cat {
 
     private String name;
     private int age;
     private String color;
     private Flea[] fleas;
+    private Map<String,Kitten> kittenMap;
 
     Cat(){}
 
@@ -15,7 +18,8 @@ public class Cat {
                 ", age: "+age+
                 ", color: "+color+
                 ", fleas: "+fleas.getClass().getSimpleName()+"["+fleas.length+"]"+
-                " }";
+                ", kittens: "+kittenMap.getClass().getSimpleName()+"("+kittenMap.size()+")"+
+        " }";
     }
 
 
@@ -47,7 +51,15 @@ public class Cat {
         return fleas;
     }
 
-    public void setFlea(Flea[] fleas) {
+    public void setFleas(Flea[] fleas) {
         this.fleas = fleas;
+    }
+
+    public Map<String, Kitten> getKittenMap() {
+        return kittenMap;
+    }
+
+    public void setKittenMap(Map<String, Kitten> kittenMap) {
+        this.kittenMap = kittenMap;
     }
 }

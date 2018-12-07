@@ -9,6 +9,9 @@ import android.widget.Button;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -37,7 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 new Flea("Блох Петя", 2)
         };
 
-        catObject.setFlea(fleas);
+        catObject.setFleas(fleas);
+
+        Map<String,Kitten> kittenMap = new HashMap<>();
+        kittenMap.put("котёнок-1", new Kitten("котёнок Муризик"));
+        kittenMap.put("котёнок-2", new Kitten("котёнок Федик"));
+
+        catObject.setKittenMap(kittenMap);
     }
 
     @OnClick(R.id.cat2jsonButton)
