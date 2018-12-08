@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        KittenMap<String,Kitten> kittenMap = new KittenMap();
+
         catString = "{\n" +
                 "\t\"age\": 0,\n" +
                 "\t\"kittenMap\": {\n" +
