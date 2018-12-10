@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ru.aakumykov.me.gsontest.R;
 import ru.aakumykov.me.gsontest.models.BoardsList.BoardsTOCItem;
 
@@ -41,19 +43,24 @@ public class BoardsListAdapter extends ArrayAdapter<BoardsTOCItem> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        BoardsTOCItem state = boardsList.get(position);
+        BoardsTOCItem boardsTOCItem = boardsList.get(position);
 
 //        viewHolder.imageView.setImageResource(state.getFlagResource());
 //        viewHolder.nameView.setText(state.getName());
 //        viewHolder.capitalView.setText(state.getCapital());
 
+        viewHolder.titleView.setText(boardsTOCItem.getName());
+
         return convertView;
     }
 
-    private class ViewHolder {
+//    private class ViewHolder {
+    public static class ViewHolder {
+        @BindView(R.id.titleView) TextView titleView;
 //        final ImageView imageView;
 //        final TextView nameView, capitalView;
         ViewHolder(View view){
+            ButterKnife.bind(this, view);
 //            imageView = (ImageView)view.findViewById(R.id.flag);
 //            nameView = (TextView) view.findViewById(R.id.name);
 //            capitalView = (TextView) view.findViewById(R.id.capital);
