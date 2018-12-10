@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import butterknife.Optional;
 import ru.aakumykov.me.gsontest.BaseView;
 import ru.aakumykov.me.gsontest.R;
 import ru.aakumykov.me.gsontest.models.BoardsList.BoardsTOCItem;
@@ -20,17 +21,16 @@ import ru.aakumykov.me.gsontest.services.iDvachService;
 
 public class BoardsListView extends BaseView {
 
-    @BindView(R.id.button) Button button;
-
     private iDvachService dvachService;
     private List<BoardsTOCItem> list;
     private BoardsListAdapter listAdapter;
     @BindView(R.id.listView) ListView listView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.boards_list_activity);
         ButterKnife.bind(this);
 
         showProgressMessage(R.string.BOARDS_LIST_loading_list);
@@ -39,11 +39,17 @@ public class BoardsListView extends BaseView {
         list = new ArrayList<>();
         listAdapter = new BoardsListAdapter(this, R.layout.boards_list_item, list);
         listView.setAdapter(listAdapter);
+
+        loadList();
+    }
+
+    @OnItemClick(R.id.listView)
+    void onItemClick(int position) {
+
     }
 
 
-    @OnClick(R.id.button)
-    void loadList() {
+    private void loadList() {
         list.clear();
         listAdapter.clear();
 
@@ -60,12 +66,6 @@ public class BoardsListView extends BaseView {
             }
         });
     }
-
-    @OnItemClick(R.id.listView)
-    void onItemClick(int position) {
-
-    }
-
 
     private void displayList(Map<String, List<BoardsTOCItem>> tocMap) {
         for (Map.Entry entry : tocMap.entrySet()) {
