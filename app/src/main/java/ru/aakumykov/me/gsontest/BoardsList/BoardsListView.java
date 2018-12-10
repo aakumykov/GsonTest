@@ -1,6 +1,7 @@
 package ru.aakumykov.me.gsontest.BoardsList;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -52,6 +53,12 @@ public class BoardsListView extends BaseView {
     }
 
     private void displayList(Map<String, List<BoardsTOCItem>> tocMap) {
-
+        for (Map.Entry entry : tocMap.entrySet()) {
+            String boardName = entry.getKey().toString();
+            List<BoardsTOCItem> list = (List<BoardsTOCItem>) entry.getValue();
+            for (int i=0; i<list.size(); i++) {
+                BoardsTOCItem boardsTOCItem = list.get(i);
+            }
+        }
     }
 }

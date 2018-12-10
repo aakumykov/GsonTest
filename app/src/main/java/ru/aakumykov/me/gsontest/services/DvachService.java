@@ -2,6 +2,8 @@ package ru.aakumykov.me.gsontest.services;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
@@ -24,14 +26,6 @@ import ru.aakumykov.me.gsontest.models.BoardsList.BoardsTOCItem;
 public class DvachService implements iDvachService {
 
     private static final String BASE_URL = "https://2ch.hk/";
-
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-    private DvachAPI dvachAPI = retrofit.create(DvachAPI.class);
-
     private static final TypeAdapter<Boolean> booleanAsIntAdapter = new TypeAdapter<Boolean>() {
 
         @Override public void write(JsonWriter out, Boolean value) throws IOException {
@@ -59,18 +53,32 @@ public class DvachService implements iDvachService {
             }
         }
     };
+    private DvachAPI dvachAPI;
 
 
     /* Одиночка */
     private static volatile DvachService ourInstance;
+
     public synchronized static DvachService getInstance() {
         synchronized (DvachService.class) {
             if (null == ourInstance) ourInstance = new DvachService();
             return ourInstance;
         }
     }
-    private DvachService() {
 
+    private DvachService() {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Boolean.class, booleanAsIntAdapter)
+                .create();
+
+        GsonConverterFactory gsonConverterFactory = GsonConverterFactory.create(gson);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(gsonConverterFactory)
+                .build();
+
+        dvachAPI = retrofit.create(DvachAPI.class);
     }
     /* Одиночка */
 
