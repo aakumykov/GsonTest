@@ -6,7 +6,7 @@ import java.util.Map;
 import ru.aakumykov.me.gsontest.models.Board.Board;
 import ru.aakumykov.me.gsontest.models.BoardsList.BoardsTOCItem;
 
-interface iDvachService {
+public interface iDvachService {
 
     void getBoardsList(TOCReadCallbacks callbacks);
 

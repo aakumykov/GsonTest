@@ -1,4 +1,4 @@
-package ru.aakumykov.me.gsontest;
+package ru.aakumykov.me.gsontest.interfaces;
 
 import java.util.List;
 import java.util.Map;
