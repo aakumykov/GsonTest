@@ -8,15 +8,15 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/o2jButton"
+        android:id="@+id/tocButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Объект --> JSON" />
+        android:text="Оглавление" />
 
     <Button
-        android:id="@+id/j2oButton"
+        android:id="@+id/boardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="JSON --> Объект" />
+        android:text="Доска" />
 
 </LinearLayout>

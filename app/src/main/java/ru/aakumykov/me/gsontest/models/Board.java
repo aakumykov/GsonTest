@@ -1,230 +1,354 @@
 package ru.aakumykov.me.gsontest.models;
 
-/*
-{
-      "bump_limit": 500,
-
-      "category": "Взрослым",
-      "default_name": "Аноним",
-
-      "enable_dices": 0,
-      "enable_flags": 0,
-      "enable_icons": 0,
-      "enable_likes": 0,
-      "enable_names": 1,
-      "enable_oekaki": 0,
-      "enable_posting": 1,
-      "enable_sage": 1,
-      "enable_shield": 0,
-      "enable_subject": 1,
-      "enable_thread_tags": 0,
-      "enable_trips": 1,
-
-      "icons": [],
-      "id": "fag",
-      "name": "Фагготрия",
-      "pages": 7,
-
-      "sage": 1,
-      "tripcodes": 1
-    }
-*/
+import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Board {
 
-    private String id;
-    private String name;
-    private String category;
-    private String default_name;
-    private Object[] icons;
+    @SerializedName("advert_bottom_image")
+    private String advertBottomImage;
+    @SerializedName("advert_bottom_link")
+    private String advertBottomLink;
+    @SerializedName("advert_mobile_image")
+    private String advertMobileImage;
+    @SerializedName("advert_mobile_link")
+    private String advertMobileLink;
+    @SerializedName("advert_top_image")
+    private String advertTopImage;
+    @SerializedName("advert_top_link")
+    private String advertTopLink;
+    @SerializedName("Board")
+    private String board;
+    @SerializedName("board_banner_image")
+    private String boardBannerImage;
+    @SerializedName("board_banner_link")
+    private String boardBannerLink;
+    @SerializedName("BoardInfo")
+    private String boardInfo;
+    @SerializedName("BoardInfoOuter")
+    private String boardInfoOuter;
+    @SerializedName("BoardName")
+    private String boardName;
+    @SerializedName("bump_limit")
+    private Long bumpLimit;
+    @SerializedName("default_name")
+    private String defaultName;
+    @SerializedName("enable_dices")
+    private Long enableDices;
+    @SerializedName("enable_flags")
+    private Long enableFlags;
+    @SerializedName("enable_icons")
+    private Long enableIcons;
+    @SerializedName("enable_images")
+    private Long enableImages;
+    @SerializedName("enable_likes")
+    private Long enableLikes;
+    @SerializedName("enable_names")
+    private Long enableNames;
+    @SerializedName("enable_oekaki")
+    private Long enableOekaki;
+    @SerializedName("enable_posting")
+    private Long enablePosting;
+    @SerializedName("enable_sage")
+    private Long enableSage;
+    @SerializedName("enable_shield")
+    private Long enableShield;
+    @SerializedName("enable_subject")
+    private Long enableSubject;
+    @SerializedName("enable_thread_tags")
+    private Long enableThreadTags;
+    @SerializedName("enable_trips")
+    private Long enableTrips;
+    @SerializedName("enable_video")
+    private Long enableVideo;
+    @Expose
+    private String filter;
+    @SerializedName("max_comment")
+    private Long maxComment;
+    @SerializedName("max_files_size")
+    private Long maxFilesSize;
 
-    private int bump_limit;
-    private int pages;
+    @SerializedName("news_abu")
+    private List<NewsAbu> newsAbu;
 
-    private Boolean sage;
-    private Boolean tripcodes;
+    @Expose
+    private List<Thread> threads;
 
-    private Boolean enable_dices;
-    private Boolean enable_flags;
-    private Boolean enable_icons;
-    private Boolean enable_likes;
-    private Boolean enable_names;
-    private Boolean enable_oekaki;
-    private Boolean enable_posting;
-    private Boolean enable_sage;
-    private Boolean enable_shield;
-    private Boolean enable_subject;
-    private Boolean enable_thread_tags;
-    private Boolean enable_trips;
-
-    Board(){}
+    @Expose
+    private List<Top> top;
 
 
-    public String getId() {
-        return id;
+    public String getAdvertBottomImage() {
+        return advertBottomImage;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAdvertBottomImage(String advertBottomImage) {
+        this.advertBottomImage = advertBottomImage;
     }
 
-    public String getName() {
-        return name;
+    public String getAdvertBottomLink() {
+        return advertBottomLink;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAdvertBottomLink(String advertBottomLink) {
+        this.advertBottomLink = advertBottomLink;
     }
 
-    public String getCategory() {
-        return category;
+    public String getAdvertMobileImage() {
+        return advertMobileImage;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setAdvertMobileImage(String advertMobileImage) {
+        this.advertMobileImage = advertMobileImage;
     }
 
-    public String getDefault_name() {
-        return default_name;
+    public String getAdvertMobileLink() {
+        return advertMobileLink;
     }
 
-    public void setDefault_name(String default_name) {
-        this.default_name = default_name;
+    public void setAdvertMobileLink(String advertMobileLink) {
+        this.advertMobileLink = advertMobileLink;
     }
 
-    public Object[] getIcons() {
-        return icons;
+    public String getAdvertTopImage() {
+        return advertTopImage;
     }
 
-    public void setIcons(Object[] icons) {
-        this.icons = icons;
+    public void setAdvertTopImage(String advertTopImage) {
+        this.advertTopImage = advertTopImage;
     }
 
-    public int getBump_limit() {
-        return bump_limit;
+    public String getAdvertTopLink() {
+        return advertTopLink;
     }
 
-    public void setBump_limit(int bump_limit) {
-        this.bump_limit = bump_limit;
+    public void setAdvertTopLink(String advertTopLink) {
+        this.advertTopLink = advertTopLink;
     }
 
-    public int getPages() {
-        return pages;
+    public String getBoard() {
+        return board;
     }
 
-    public void setPages(int pages) {
-        this.pages = pages;
+    public void setBoard(String board) {
+        this.board = board;
     }
 
-    public Boolean getSage() {
-        return sage;
+    public String getBoardBannerImage() {
+        return boardBannerImage;
     }
 
-    public void setSage(Boolean sage) {
-        this.sage = sage;
+    public void setBoardBannerImage(String boardBannerImage) {
+        this.boardBannerImage = boardBannerImage;
     }
 
-    public Boolean getTripcodes() {
-        return tripcodes;
+    public String getBoardBannerLink() {
+        return boardBannerLink;
     }
 
-    public void setTripcodes(Boolean tripcodes) {
-        this.tripcodes = tripcodes;
+    public void setBoardBannerLink(String boardBannerLink) {
+        this.boardBannerLink = boardBannerLink;
     }
 
-    public Boolean getEnable_dices() {
-        return enable_dices;
+    public String getBoardInfo() {
+        return boardInfo;
     }
 
-    public void setEnable_dices(Boolean enable_dices) {
-        this.enable_dices = enable_dices;
+    public void setBoardInfo(String boardInfo) {
+        this.boardInfo = boardInfo;
     }
 
-    public Boolean getEnable_flags() {
-        return enable_flags;
+    public String getBoardInfoOuter() {
+        return boardInfoOuter;
     }
 
-    public void setEnable_flags(Boolean enable_flags) {
-        this.enable_flags = enable_flags;
+    public void setBoardInfoOuter(String boardInfoOuter) {
+        this.boardInfoOuter = boardInfoOuter;
     }
 
-    public Boolean getEnable_icons() {
-        return enable_icons;
+    public String getBoardName() {
+        return boardName;
     }
 
-    public void setEnable_icons(Boolean enable_icons) {
-        this.enable_icons = enable_icons;
+    public void setBoardName(String boardName) {
+        this.boardName = boardName;
     }
 
-    public Boolean getEnable_likes() {
-        return enable_likes;
+    public Long getBumpLimit() {
+        return bumpLimit;
     }
 
-    public void setEnable_likes(Boolean enable_likes) {
-        this.enable_likes = enable_likes;
+    public void setBumpLimit(Long bumpLimit) {
+        this.bumpLimit = bumpLimit;
     }
 
-    public Boolean getEnable_names() {
-        return enable_names;
+    public String getDefaultName() {
+        return defaultName;
     }
 
-    public void setEnable_names(Boolean enable_names) {
-        this.enable_names = enable_names;
+    public void setDefaultName(String defaultName) {
+        this.defaultName = defaultName;
     }
 
-    public Boolean getEnable_oekaki() {
-        return enable_oekaki;
+    public Long getEnableDices() {
+        return enableDices;
     }
 
-    public void setEnable_oekaki(Boolean enable_oekaki) {
-        this.enable_oekaki = enable_oekaki;
+    public void setEnableDices(Long enableDices) {
+        this.enableDices = enableDices;
     }
 
-    public Boolean getEnable_posting() {
-        return enable_posting;
+    public Long getEnableFlags() {
+        return enableFlags;
     }
 
-    public void setEnable_posting(Boolean enable_posting) {
-        this.enable_posting = enable_posting;
+    public void setEnableFlags(Long enableFlags) {
+        this.enableFlags = enableFlags;
     }
 
-    public Boolean getEnable_sage() {
-        return enable_sage;
+    public Long getEnableIcons() {
+        return enableIcons;
     }
 
-    public void setEnable_sage(Boolean enable_sage) {
-        this.enable_sage = enable_sage;
+    public void setEnableIcons(Long enableIcons) {
+        this.enableIcons = enableIcons;
     }
 
-    public Boolean getEnable_shield() {
-        return enable_shield;
+    public Long getEnableImages() {
+        return enableImages;
     }
 
-    public void setEnable_shield(Boolean enable_shield) {
-        this.enable_shield = enable_shield;
+    public void setEnableImages(Long enableImages) {
+        this.enableImages = enableImages;
     }
 
-    public Boolean getEnable_subject() {
-        return enable_subject;
+    public Long getEnableLikes() {
+        return enableLikes;
     }
 
-    public void setEnable_subject(Boolean enable_subject) {
-        this.enable_subject = enable_subject;
+    public void setEnableLikes(Long enableLikes) {
+        this.enableLikes = enableLikes;
     }
 
-    public Boolean getEnable_thread_tags() {
-        return enable_thread_tags;
+    public Long getEnableNames() {
+        return enableNames;
     }
 
-    public void setEnable_thread_tags(Boolean enable_thread_tags) {
-        this.enable_thread_tags = enable_thread_tags;
+    public void setEnableNames(Long enableNames) {
+        this.enableNames = enableNames;
     }
 
-    public Boolean getEnable_trips() {
-        return enable_trips;
+    public Long getEnableOekaki() {
+        return enableOekaki;
     }
 
-    public void setEnable_trips(Boolean enable_trips) {
-        this.enable_trips = enable_trips;
+    public void setEnableOekaki(Long enableOekaki) {
+        this.enableOekaki = enableOekaki;
     }
+
+    public Long getEnablePosting() {
+        return enablePosting;
+    }
+
+    public void setEnablePosting(Long enablePosting) {
+        this.enablePosting = enablePosting;
+    }
+
+    public Long getEnableSage() {
+        return enableSage;
+    }
+
+    public void setEnableSage(Long enableSage) {
+        this.enableSage = enableSage;
+    }
+
+    public Long getEnableShield() {
+        return enableShield;
+    }
+
+    public void setEnableShield(Long enableShield) {
+        this.enableShield = enableShield;
+    }
+
+    public Long getEnableSubject() {
+        return enableSubject;
+    }
+
+    public void setEnableSubject(Long enableSubject) {
+        this.enableSubject = enableSubject;
+    }
+
+    public Long getEnableThreadTags() {
+        return enableThreadTags;
+    }
+
+    public void setEnableThreadTags(Long enableThreadTags) {
+        this.enableThreadTags = enableThreadTags;
+    }
+
+    public Long getEnableTrips() {
+        return enableTrips;
+    }
+
+    public void setEnableTrips(Long enableTrips) {
+        this.enableTrips = enableTrips;
+    }
+
+    public Long getEnableVideo() {
+        return enableVideo;
+    }
+
+    public void setEnableVideo(Long enableVideo) {
+        this.enableVideo = enableVideo;
+    }
+
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
+
+    public Long getMaxComment() {
+        return maxComment;
+    }
+
+    public void setMaxComment(Long maxComment) {
+        this.maxComment = maxComment;
+    }
+
+    public Long getMaxFilesSize() {
+        return maxFilesSize;
+    }
+
+    public void setMaxFilesSize(Long maxFilesSize) {
+        this.maxFilesSize = maxFilesSize;
+    }
+
+    public List<NewsAbu> getNewsAbu() {
+        return newsAbu;
+    }
+
+    public void setNewsAbu(List<NewsAbu> newsAbu) {
+        this.newsAbu = newsAbu;
+    }
+
+    public List<Thread> getThreads() {
+        return threads;
+    }
+
+    public void setThreads(List<Thread> threads) {
+        this.threads = threads;
+    }
+
+    public List<Top> getTop() {
+        return top;
+    }
+
+    public void setTop(List<Top> top) {
+        this.top = top;
+    }
+
 }
