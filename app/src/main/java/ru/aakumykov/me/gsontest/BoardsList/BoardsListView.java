@@ -11,6 +11,8 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
+import butterknife.OnItemSelected;
 import ru.aakumykov.me.gsontest.BaseView;
 import ru.aakumykov.me.gsontest.R;
 import ru.aakumykov.me.gsontest.models.BoardsList.BoardsTOCItem;
@@ -19,10 +21,12 @@ import ru.aakumykov.me.gsontest.services.iDvachService;
 
 public class BoardsListView extends BaseView {
 
-    @BindView(R.id.listView) ListView listView;
     @BindView(R.id.button) Button button;
 
     private iDvachService dvachService;
+    private List<BoardsTOCItem> boardsList;
+    private BoardsListAdapter boardsListAdapter;
+    @BindView(R.id.listView) ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,10 @@ public class BoardsListView extends BaseView {
         showProgressMessage(R.string.BOARDS_LIST_loading_list);
 
         dvachService = DvachService.getInstance();
+        boardsListAdapter = new BoardsListAdapter(this, R.layout.boards_list_item, boardsList);
+        listView.setAdapter(boardsListAdapter);
     }
+
 
     @OnClick(R.id.button)
     void loadList() {
@@ -52,12 +59,19 @@ public class BoardsListView extends BaseView {
         });
     }
 
+    @OnItemClick(R.id.listView)
+    void onItemClick(int position) {
+
+    }
+
+
     private void displayList(Map<String, List<BoardsTOCItem>> tocMap) {
         for (Map.Entry entry : tocMap.entrySet()) {
             String boardName = entry.getKey().toString();
             List<BoardsTOCItem> list = (List<BoardsTOCItem>) entry.getValue();
             for (int i=0; i<list.size(); i++) {
                 BoardsTOCItem boardsTOCItem = list.get(i);
+
             }
         }
     }
