@@ -33,6 +33,7 @@ public class BoardsListView extends BaseView {
         setContentView(R.layout.boards_list_activity);
         ButterKnife.bind(this);
 
+        setPageTitle(R.string.BOARDS_LIST_page_title);
         showProgressMessage(R.string.BOARDS_LIST_loading_list);
 
         dvachService = DvachService.getInstance();
@@ -57,6 +58,7 @@ public class BoardsListView extends BaseView {
             @Override
             public void onTOCReadSuccess(Map<String, List<BoardsTOCItem>> tocMap) {
                 hideProgressMessage();
+                showToast(R.string.BOARDS_LIST_list_loaded);
                 displayList(tocMap);
             }
 

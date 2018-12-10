@@ -1,5 +1,6 @@
 package ru.aakumykov.me.gsontest;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -11,6 +12,19 @@ import ru.aakumykov.me.gsontest.utils.MyUtils;
 public class BaseView extends AppCompatActivity {
 
     private final static String TAG = "BaseView";
+
+
+    public void setPageTitle(int titleId) {
+        String title = getResources().getString(titleId);
+        setPageTitle(title);
+    }
+
+    public void setPageTitle(String title) {
+        String fullTitle = getString(R.string.fullTitle, title);
+        ActionBar actionBar = getSupportActionBar();
+        if (null != actionBar)
+            actionBar.setTitle(fullTitle);
+    }
 
 
     public void showProgressMessage(int messageId) {
@@ -38,19 +52,6 @@ public class BaseView extends AppCompatActivity {
         if (null != progressBar)
             MyUtils.hide(progressBar);
     }
-
-
-//    public void showProgressBar() {
-//        ProgressBar progressBar = findViewById(R.id.progressBar);
-//        if (null != progressBar)
-//            MyUtils.show(progressBar);
-//    }
-//
-//    public void hideProgressBar() {
-//        ProgressBar progressBar = findViewById(R.id.progressBar);
-//        if (null != progressBar)
-//            MyUtils.hide(progressBar);
-//    }
 
 
     public void showToast(int messageId) {

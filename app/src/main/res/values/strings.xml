@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">GsonTest</string>
+    <string name="app_name">2ch</string>
     <string name="BOARDS_LIST_loading_list">Loading boards list</string>
     <string name="BOARDS_LIST_error_loading_list">Error loading boards list</string>
+    <string name="BOARDS_LIST_list_loaded">List is loaded</string>
+    <string name="BOARDS_LIST_page_title">Boards list</string>
+    <string name="fullTitle">%s - 2ch</string>
 </resources>

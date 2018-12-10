@@ -3,4 +3,7 @@
     <string name="app_name">GsonTest</string>
     <string name="BOARDS_LIST_loading_list">Получаю список досок</string>
     <string name="BOARDS_LIST_error_loading_list">Ошибка загрузки списка досок</string>
+    <string name="BOARDS_LIST_list_loaded">Список загружен</string>
+    <string name="BOARDS_LIST_page_title">Список досок</string>
+    <string name="fullTitle">%s - Двач</string>
 </resources>
