@@ -30,7 +30,7 @@ package ru.aakumykov.me.gsontest.models.BoardsList;
     }
 */
 
-public class BoardInTOC {
+public class BoardsTOCItem {
 
     private String id;
     private String name;
@@ -57,7 +57,7 @@ public class BoardInTOC {
     private Boolean enable_thread_tags;
     private Boolean enable_trips;
 
-    BoardInTOC(){}
+    BoardsTOCItem(){}
 
 
     public String getId() {
