@@ -25,8 +25,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import ru.aakumykov.me.gsontest.models.Board;
-import ru.aakumykov.me.gsontest.models.BoardInTOC;
+import ru.aakumykov.me.gsontest.models.Board.Board;
+import ru.aakumykov.me.gsontest.models.BoardsList.BoardInTOC;
 
 public class MainActivity extends AppCompatActivity {
 

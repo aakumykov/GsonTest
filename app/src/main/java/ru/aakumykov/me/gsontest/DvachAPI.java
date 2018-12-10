@@ -3,7 +3,7 @@ package ru.aakumykov.me.gsontest;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import ru.aakumykov.me.gsontest.models.Board;
+import ru.aakumykov.me.gsontest.models.Board.Board;
 
 public interface DvachAPI {
 

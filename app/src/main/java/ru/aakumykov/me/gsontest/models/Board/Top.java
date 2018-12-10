@@ -1,4 +1,4 @@
-package ru.aakumykov.me.gsontest.models;
+package ru.aakumykov.me.gsontest.models.Board;
 
 import com.google.gson.annotations.Expose;
 
