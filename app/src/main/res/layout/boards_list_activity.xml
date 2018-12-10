@@ -5,18 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".BoardsList.BoardsListView">
 
-    <Button
-        android:id="@+id/tocButton"
+    <include
+        layout="@layout/progress_message"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Оглавление" />
+        android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/boardButton"
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Доска" />
-
+        android:layout_height="match_parent" />
 </LinearLayout>
