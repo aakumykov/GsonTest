@@ -1,7 +1,6 @@
-package ru.aakumykov.me.gsontest.BoardsList;
+package ru.aakumykov.me.gsontest.boards_list;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -10,16 +9,14 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.OnItemClick;
-import butterknife.Optional;
 import ru.aakumykov.me.gsontest.BaseView;
 import ru.aakumykov.me.gsontest.R;
 import ru.aakumykov.me.gsontest.models.BoardsList.BoardsTOCItem;
 import ru.aakumykov.me.gsontest.services.DvachService;
 import ru.aakumykov.me.gsontest.services.iDvachService;
 
-public class BoardsListView extends BaseView {
+public class BoardsList_View extends BaseView {
 
     private iDvachService dvachService;
     private List<BoardsTOCItem> list;

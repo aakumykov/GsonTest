@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".boards_list.BoardsList_View">
+    android:orientation="vertical">
 
     <include
         layout="@layout/progress_message"
@@ -16,4 +15,5 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>

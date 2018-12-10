@@ -1,4 +1,4 @@
-package ru.aakumykov.me.gsontest.BoardsList;
+package ru.aakumykov.me.gsontest.boards_list;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

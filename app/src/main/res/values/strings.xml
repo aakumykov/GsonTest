@@ -5,4 +5,5 @@
     <string name="BOARDS_LIST_list_loaded">List is loaded</string>
     <string name="BOARDS_LIST_page_title">Boards list</string>
     <string name="fullTitle">%s - 2ch</string>
+    <string name="THREADS_LIST_page_title">Threads list</string>
 </resources>

@@ -6,4 +6,5 @@
     <string name="BOARDS_LIST_list_loaded">Список загружен</string>
     <string name="BOARDS_LIST_page_title">Список досок</string>
     <string name="fullTitle">%s - Двач</string>
+    <string name="THREADS_LIST_page_title">Список тредов</string>
 </resources>
