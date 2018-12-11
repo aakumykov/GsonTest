@@ -18,7 +18,6 @@ import ru.aakumykov.me.gsontest.utils.MyUtils;
 
 public abstract class BaseFragment extends Fragment implements iBaseFragment {
 
-    public abstract View getView();
     public abstract String getLogTag();
 
 
@@ -42,25 +41,25 @@ public abstract class BaseFragment extends Fragment implements iBaseFragment {
     public void showProgressMessage(int messageId) {
         String message = getResources().getString(messageId);
 
-        TextView messageView = getView().findViewById(R.id.messageView);
+        TextView messageView = getActivity().findViewById(R.id.messageView);
         if (null != messageView) {
             messageView.setText(message);
             MyUtils.show(messageView);
         }
 
-        ProgressBar progressBar = getView().findViewById(R.id.progressBar);
+        ProgressBar progressBar = getActivity().findViewById(R.id.progressBar);
         if (null != progressBar)
             MyUtils.show(progressBar);
     }
 
     public void hideProgressMessage() {
 
-        TextView messageView = getView().findViewById(R.id.messageView);
+        TextView messageView = getActivity().findViewById(R.id.messageView);
         if (null != messageView) {
             MyUtils.hide(messageView);
         }
 
-        ProgressBar progressBar = getView().findViewById(R.id.progressBar);
+        ProgressBar progressBar = getActivity().findViewById(R.id.progressBar);
         if (null != progressBar)
             MyUtils.hide(progressBar);
     }
@@ -83,14 +82,14 @@ public abstract class BaseFragment extends Fragment implements iBaseFragment {
 
     private void errorMsg(String message) {
 
-        TextView messageView = getView().findViewById(R.id.messageView);
+        TextView messageView = getActivity().findViewById(R.id.messageView);
         if (null != messageView) {
             messageView.setText(message);
             messageView.setTextColor(getResources().getColor(R.color.colorAccent));
             MyUtils.show(messageView);
         }
 
-        ProgressBar progressBar = getView().findViewById(R.id.progressBar);
+        ProgressBar progressBar = getActivity().findViewById(R.id.progressBar);
         if (null != progressBar)
             MyUtils.hide(progressBar);
     }
