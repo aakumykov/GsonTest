@@ -27,18 +27,18 @@ public class BoardsList_View extends BaseView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.boards_list_activity);
+        setContentView(R.layout.boards_list_fragment);
         ButterKnife.bind(this);
 
         setPageTitle(R.string.BOARDS_LIST_page_title);
-        showProgressMessage(R.string.BOARDS_LIST_loading_list);
+//        showProgressMessage(R.string.BOARDS_LIST_loading_list);
 
         dvachService = DvachService.getInstance();
         list = new ArrayList<>();
         listAdapter = new BoardsListAdapter(this, R.layout.boards_list_item, list);
         listView.setAdapter(listAdapter);
 
-        loadList();
+//        loadList();
     }
 
     @OnItemClick(R.id.listView)
@@ -54,14 +54,14 @@ public class BoardsList_View extends BaseView {
         dvachService.getBoardsList(new iDvachService.TOCReadCallbacks() {
             @Override
             public void onTOCReadSuccess(Map<String, List<BoardsTOCItem>> tocMap) {
-                hideProgressMessage();
-                showToast(R.string.BOARDS_LIST_list_loaded);
+//                hideProgressMessage();
+//                showToast(R.string.BOARDS_LIST_list_loaded);
                 displayList(tocMap);
             }
 
             @Override
             public void onTOCReadFail(String errorMsg) {
-                showErrorMsg(R.string.BOARDS_LIST_error_loading_list, errorMsg);
+//                showErrorMsg(R.string.BOARDS_LIST_error_loading_list, errorMsg);
             }
         });
     }
